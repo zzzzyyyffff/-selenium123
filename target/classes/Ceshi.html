@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>单选框选中触发事件</title>
+</head>
+<body>
+<p>
+    <label>是否成为网点管理员:</label>
+    <span class="field" id="radio">
+          <input type="radio" name="isAdmin" value="1" id="isAdmin" >是
+          <input type="radio" name="isAdmin" value="0" id="notAdmin" >否
+    </span>
+</p>
+<p>
+          <span id="myAdmin" style="display: none">
+          <label>输入网点编号:</label>
+          <input type="text" name="netPoint" id="netPoint" value="" />
+          </span>
+</p>
+<input type="button" id="btn" name="buttonhtml" value="请仔细阅读协议" disabled="disabled">
+<br/>
+<input class="alert" type="button" value="显示警告框" onclick="display_alert()"/>
+<br/>
+<input class="confirm" type="button" onclick="warning()" value="点击我"/>
+<br/>
+<p>
+    <button class="prompt" value="点击提交" onclick="judge()">点击提交</button>
+</p>
+<a href="https://www.baidu.com">baidu</a>
+</body>
+<script src="../js/jquery-1.11.3.min.js"></script>
+<!--<script>-->
+<!--    // 根据单选框触发是否提交事件!-->
+<!--    $('input:radio[name="isAdmin"]').change(function () {-->
+<!--        if ($("#isAdmin").is(":checked")) {-->
+<!--            $("#myAdmin").show();-->
+<!--        }-->
+<!--        if ($("#notAdmin").is(":checked")) {-->
+<!--            $("#myAdmin").hide();-->
+<!--            $("#netPoint").text('');-->
+<!--        }-->
+<!--    })-->
+<!--    function display_alert()-->
+<!--    {-->
+<!--        alert("请确定");-->
+
+<!--    }-->
+<!--    function warning(){-->
+<!--        if(confirm('确定要删除吗')==true){-->
+<!--            return true;-->
+
+<!--        }else{-->
+<!--            alert("确定要取消吗？");-->
+
+<!--        }-->
+
+<!--    }-->
+
+
+<!--</script>-->
+<script type="text/JavaScript">
+    function judge() {
+        var score;//分数
+        var degree;//分数等级
+        score = prompt("你的分数是多少？")
+        if (score > 100){
+            degree = '耍我？100分满！';
+        }
+        else{
+            switch (parseInt(score / 10)) {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    degree = "恭喜你，又挂了！";
+                    break;
+                case 6:
+                    degree = "勉强及格";
+                    break;
+                case 7:
+                    degree = "凑合，凑合"
+                    break;
+                case 8:
+                    degree = "8错，8错";
+                    break;
+                case 9:
+                case 10:
+                    degree = "高手高手，佩服佩服";
+            }//end of switch
+        }//end of else
+        alert(degree);
+    }
+
+</script>
+</html>
